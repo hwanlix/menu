@@ -1,0 +1,1093 @@
+/* ----------------- Page Setup & Override Certain Materialize CSS defaults -*/
+
+body {
+    background-image: url('../images/background/bg.jpg');
+    background-repeat: repeat;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    min-height: 100vh;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    font-family: 'Muli', sans-serif;
+}
+
+main {
+    background-color: rgb(255, 255, 255); /*Fallback*/
+    background-color: rgba(255, 255, 255, 0.7);
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 auto;
+            flex: 1 0 auto;
+}
+
+.page-container {
+    -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    /*border-top: 2px solid #aaa;*/
+}
+
+@media only screen and (min-width: 601px) {
+    .page-container {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+@media only screen and (min-width: 993px) {
+    .page-container {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .page-container {
+        border-left: 2px solid #aaa;
+        border-right: 2px solid #aaa;
+    }
+}
+
+.content-wrapper {
+    min-height: calc(100vh - 64px - 96px - 32px);
+    background-color: rgb(255, 255, 255); /*Fallback*/
+    background-color: rgba(255, 255, 255, 0.9);
+    padding-bottom: 30px;
+    border-top: 2px solid #aaa;
+    border-bottom: 2px solid #aaa;
+}
+
+.hidden {
+    display: none;
+}
+
+.eq-height-columns {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+}
+
+a {
+    color: black;
+}
+
+h1, h2 {
+    font-family: 'Cormorant SC', serif;
+}
+
+h3 {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+}
+
+h4,
+h5 {
+    font-family: 'Playfair Display', serif;
+}
+
+h6,
+p {
+    font-family: 'Muli', sans-serif;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: 'Muli', sans-serif;
+}
+
+nav .brand-logo:hover,
+nav ul a:hover,
+nav ul .active,
+.neon-pink-glow,
+.landing i:hover,
+.card .card-action a:hover,
+footer i:hover {
+    text-shadow: 0 0 5px #ff2281,
+                 0 0 10px #ff2281,
+                 0 0 20px #ff2281,
+                 0 0 40px #ff2281;
+}
+
+
+/* ---------------------------------------------------------------- Buttons -*/
+
+.btn--black {
+    height: 1.8rem;
+    line-height: 1.7rem;
+    font-size: 0.8rem;
+    background-color: #212121;
+    border: 1px solid black;
+    color: white;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+    margin: 0.5rem 0.5rem 1rem;
+}
+
+.btn--black:hover,
+.btn--black:focus,
+.btn--black:active {
+    background-color: white;
+    color: black;
+}
+
+.btn--white {
+    height: 1.8rem;
+    line-height: 1.7rem;
+    font-size: 0.8rem;
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+    margin: 0.5rem 0.5rem 1rem;
+}
+
+.btn--white:hover,
+.btn--white:focus,
+.btn--white:active {
+    background-color: #212121;
+    color: white;
+}
+
+.btn--red {
+    height: 1.8rem;
+    line-height: 1.7rem;
+    font-size: 0.8rem;
+    background-color: #e53935;
+    border: 1px solid #c62828;
+    color: white;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+    margin: 0.5rem 0.5rem 1rem;
+}
+
+.btn--red:hover,
+.btn--red:focus,
+.btn--red:active {
+    background-color: white;
+    color: #c62828;
+}
+
+.fa-2x {
+    margin: 0.75rem 1rem 0.75rem 0    ;
+}
+
+
+/* ------------------------------------------------------------ Card Labels -*/
+
+.card-label {
+    position: absolute;
+    font-size: 0.7rem;
+    top: 8px;
+    right: 16px;
+    margin-top: 7px;
+    padding: 2px 8px;
+    border: 1px solid black;
+    color: white;
+}
+
+.card-label--pos-1 {
+    top: 8px;
+}
+
+.card-label--pos-2 {
+    top: 38px;
+}
+
+.card-label--pos-3 {
+    top: 68px;
+}
+
+.search-relevance {
+    position: absolute;
+    font-size: 1.1rem;
+    bottom: 12px;
+    left: 12px;
+    padding: 2px 8px;
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+}
+
+@media screen and (min-width: 601px) {
+    .search-relevance {
+        font-size: 1.3rem;
+    }
+}
+
+
+/* ------------------------------------------------------------ Landing Page-*/
+
+.landing {
+    background: url(../images/background/landing.jpg) no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+}
+
+.landing-box {
+    margin: auto;
+    width: 100%;
+    padding: 1.5vw;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    background-color: rgb(0, 0, 0); /*Fallback*/
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.landing-box h1 {
+    font-family: 'Grand Hotel', cursive;
+    font-style: italic;
+    font-size: 24vw;
+    margin: 1vw auto 0;
+}
+
+.landing-box h4 {
+    font-family: 'Playfair Display', serif;
+    margin-top: 0;
+    font-size: 8.5vw;
+}
+
+.landing i {
+    margin: 2vw auto 1vw;
+    font-size: 11vw;
+    color: white;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    -webkit-transition-timing-function: ease-in;
+         -o-transition-timing-function: ease-in;
+            transition-timing-function: ease-in;
+}
+
+@media screen and (min-width: 601px){
+    .landing-box h1 {
+        font-size: 19vw;
+    }
+    
+    .landing-box h4 {
+        font-size: 6.5vw;
+    }
+    
+    .landing i {
+        font-size: 8vw;
+    }
+}
+
+
+@media screen and (min-width: 993px){
+    .landing-box h1 {
+        font-size: 14vw;
+        margin: 1vw 40vw 0 0;
+    }
+    
+    .landing-box h4 {
+        font-size: 5vw;
+        margin: 0 40vw 0 0;
+    }
+    
+    .landing i {
+        font-size: 6vw;
+        margin: 2vw 40vw 1vw 0;
+    }
+}
+
+
+@media screen and (min-width: 1201px){
+    .landing-box h1 {
+        font-size: 10vw;
+    }
+    
+    .landing-box h4 {
+        font-size: 3.5vw;
+    }
+    
+    .landing i {
+        font-size: 4vw;
+    }
+}
+
+
+/* ---------------------------------------------------------------- Nav Bar -*/
+
+nav {
+     font-family: 'Grand Hotel', cursive;
+}
+
+nav .brand-logo {
+    font-style: italic;
+    font-size: 3rem;
+    -webkit-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
+}
+
+@media screen and (min-width: 993px) {
+    nav .brand-logo {
+        margin-left: 2rem;
+    }
+}
+
+#nav-mobile {
+    margin-right: 1.4rem;
+}
+
+nav ul a {
+    font-size: 2rem;
+    -webkit-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
+}
+
+
+/* ----------------------------------------------------------- Side Nav Bar -*/
+
+.sidenav>.row {
+    margin-bottom: 0;
+}
+
+.sidenav .row .col {
+    padding: 0;
+}
+
+.sidenav li > a {
+    color: white;
+}
+
+.sidenav li > a > i {
+    margin-right: 10px;
+}
+
+/* -------------------------------------------------------- Flashed Messages-*/
+
+.flash-box {
+    position: relative;
+    max-width: 90%;
+    margin: 20px auto;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    border-radius: 15px;
+    background-color: black;
+    color: white;
+}
+
+@media screen and (min-width: 601px) {
+    .flash-box {
+        max-width: 70%;
+    }
+}
+
+@media screen and (min-width: 1201px) {
+    .flash-box {
+        max-width: 50%;
+    }
+}
+
+.close-btn a {
+    position: absolute;
+    top: 15px;
+    right: 22px;
+    color: white;
+}
+
+
+/* ----------------------------------------------------------- Intro Header -*/
+
+.intro-wrapper {
+    max-width: 1280px;
+    padding: 0;
+    position: relative;
+}
+
+.intro-wrapper img {
+    display: block;
+    width: 100%;
+    height: 25vh;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+
+@media screen and (min-width: 601px) {
+    .intro-wrapper img {
+        height: 40vh;
+    }
+}
+
+.intro {
+    background: url(../images/background/grey_tx.jpg);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate( -50%, -50%);
+        -ms-transform: translate( -50%, -50%);
+            transform: translate( -50%, -50%);
+    width: 70%;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    font-weight: bold;
+    background-color: white;
+    color: black;
+    padding: .8rem;
+}
+
+@media screen and (min-width: 601px) {
+    .intro {
+        left: 50%;
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 993px) {
+    .intro {
+        left: 30%;
+        width: 30%;
+    }
+}
+
+.intro-subheading {
+    font-family: 'Grand Hotel', cursive;
+    font-style: italic;
+    font-size: 2.8rem;
+}
+
+.intro hr {
+    margin: 1rem auto;
+    width: 35%;
+}
+
+.intro-number {
+    font-style: italic;
+    font-size: 4rem;
+}
+
+.intro .row {
+    margin-bottom: 0;
+}
+
+
+/* --------------------------------------------------------Browse / View By -*/
+
+.browse-by {
+    margin: 5rem 0 3rem;
+}
+
+#filter-tabs ul {
+    margin-bottom: 1rem;
+}
+
+.tabs .indicator {
+    display: none;
+}
+
+.tabs .tab a.active {
+    border-bottom: 2px solid #555;
+}
+
+.tabs .tab a {
+    color: #000;
+}
+
+.tabs .tab a:focus,
+.tabs .tab a:hover {
+    background-color: #eee;
+    color: #000;
+}
+
+.tabs .tab a.active,
+.tabs .tab a:focus.active {
+    background-color: #212121;
+    color: #fff;
+}
+
+#category-tab .card-content {
+    padding: 24px 18px;
+    font-size: 0.9rem;
+    height: 150px;
+    background-color: #eee;
+    color: black;
+}
+
+@media screen and (min-width: 401px) {
+    #category-tab .card-content {
+        height: 132px;
+    }
+}
+
+@media screen and (min-width: 501px) {
+    #category-tab .card-content {
+        height: 138px;
+        font-size: 1rem;
+    }
+}
+
+@media screen and (min-width: 601px) {
+    #category-tab .card-content {
+        padding: 24px;
+        height: 154px;
+    }
+}
+
+@media screen and (min-width: 801px) {
+    #category-tab .card-content {
+        height: 132px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    #category-tab .card-content {
+        height: 112px;
+    }
+}
+
+#difficulty-tab img {
+    height: 200px;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+
+.subheader-label {
+    display: inline-block;
+    border: 1px solid black;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    width: 60%;
+}
+
+
+/* ------------------------------------------------------------ Drink Cards -*/
+
+.card .card-action {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background-color: #212121;
+    padding: 0 12px;
+    height: 70px;
+}
+
+.card .card-action a {
+    color: white !important;
+    -webkit-transition: 0.8s ease-in;
+    -o-transition: 0.8s ease-in;
+    transition: 0.8s ease-in;
+}
+
+.card-image img {
+    -o-object-fit: cover;
+       object-fit: cover;
+    height: 200px;
+}
+
+@media screen and (min-width: 601px) {
+    .card-image img {
+        height: 330px;
+    }
+}
+
+@media screen and (min-width: 993px) {
+    .card-image img {
+        height: 260px;
+    }
+}
+
+.card .card-action a {
+    margin-right: 0!important;
+}
+
+
+/* -------------------------------------------------------- Display Summary -*/
+
+.display-summary {
+    margin-top: 3rem;
+}
+
+.hr-results {
+    width: 50%;
+    margin: auto;
+}
+
+.pagination li.active {
+    background-color: initial;
+}
+
+.pagination li.active a {
+    background-color: initial;
+    border-radius: 5px;
+    border: 2px solid black;
+    font-weight: bold;
+    color: black;
+}
+
+/* ----------------------------------------------------------- Sort Options -*/
+
+.results-per-page {
+    margin-bottom: 1rem;
+}
+
+
+/* ---------------------------------Override Styling For Materialize Inputs -*/
+
+[type="radio"]:checked+span:after {
+    border: 2px solid black;
+    background-color: #212121;
+}
+
+.dropdown-content li>a,
+.dropdown-content li>span {
+    color: #212121;
+}
+
+.select-dropdown:focus {
+    border-bottom: 1px solid #9e9e9e;
+}
+
+.row .input-field input[type=text]:focus {
+    border-bottom: 1px solid #9e9e9e;
+    -webkit-box-shadow: 0 1px 0 0 #9e9e9e;
+            box-shadow: 0 1px 0 0 #9e9e9e;
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly])+label,
+input[type=password]:not(.browser-default):focus:not([readonly])+label,
+input[type=url]:not(.browser-default):focus:not([readonly])+label,
+textarea.materialize-textarea:focus:not([readonly])+label {
+    color: #212121;
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+input[type=url]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #9e9e9e;
+    -webkit-box-shadow: 0 1px 0 0 #9e9e9e;
+            box-shadow: 0 1px 0 0 #9e9e9e
+}
+
+input.invalid[type=text]:not(.browser-default),
+input.invalid[type=password]:not(.browser-default),
+input.invalid[type=url]:not(.browser-default),
+textarea.materialize-textarea.invalid {
+    border-bottom: 1px solid #b30c0c;
+    -webkit-box-shadow: 0 1px 0 0 #b30c0c;
+            box-shadow: 0 1px 0 0 #b30c0c;
+}
+
+
+/* -------------------------------------------------------- Drink Page View -*/
+
+.section-padding {
+    padding: 3rem 0;
+}
+
+@media screen and (min-width: 993px) {
+    .section-padding {
+        padding: 6rem 0;
+    }
+}
+
+.drink-wrapper .mid-section-padding {
+    padding-bottom: 3rem;
+}
+
+.drink-wrapper {
+    background-color: rgb(255, 255, 255); /*Fallback*/
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 0 30px;
+}
+
+.drink-wrapper .row {
+    margin-bottom: 0;
+}
+
+#drink-wrapper h4 {
+    display: inline-block;
+    padding-bottom: .4rem;
+}
+
+.underline-color--green {
+    border-bottom: 3px solid #4caf50;
+}
+
+.underline-color--pink {
+    border-bottom: 3px solid #ff4081;
+}
+
+.underline-color--purple {
+    border-bottom: 3px solid #7c4dff;
+}
+
+.drink-author {
+    display: inline-block;
+    border: 1px solid black;
+    padding: 1rem;
+    margin: 1rem 0 2rem;
+}
+
+#drink-img {
+    padding-bottom: 4rem;
+}
+
+@media screen and (min-width: 993px) {
+    #drink-img {
+        padding-bottom: 0;
+    }
+}
+
+
+#drink-img img {
+    -o-object-fit: cover;
+       object-fit: cover;
+    max-height: 375px;
+    margin: 0 auto 20px;
+}
+
+#ingredients-box {
+    padding: 0 .75rem 2rem;
+}
+
+.measure-width {
+    width: 33%;
+}
+
+#instructions-box {
+    padding: 1rem .75rem 4rem;
+}
+
+@media screen and (min-width: 601px) {
+    #instructions-box {
+        padding: 1rem .75rem;
+    }
+}
+
+#glass-img {
+    padding: 0 4rem;
+}
+
+#glass-img img {
+    margin: auto;
+    border-bottom: 1px solid #aaa;
+}
+
+#info-box {
+    padding: 1rem 2rem;
+    font-size: 2rem;
+    line-height: 2rem;
+}
+
+.info-label {
+    font-size: 1.0rem;
+    padding: .2rem 0.4rem;
+    margin: 0 .2rem;
+    border: 1px solid black;
+    color: black;
+    white-space: nowrap
+}
+
+.info-label-spacing h6 {
+    margin: 1rem 0;
+}
+
+#favorites-box {
+    padding-bottom: 4rem;
+}
+
+@media screen and (min-width: 993px) {
+    #favorites-box {
+        padding-right: 54px;
+        padding-bottom: 0;
+    }
+}
+
+#favorites-box i {
+    font-size: 4rem;
+    margin: 1rem;
+}
+
+.fave-msg-border {
+    border: 1px solid black;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+.fave-label {
+    display: inline-block;
+    font-size: 1.0rem;
+    padding: .6rem;
+    border: 1px solid black;
+    color: black;
+    margin: 0.5rem;
+}
+
+#quote-box {
+    background: url('../images/background/red.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 40px;
+}
+
+.quote-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+    color: white;
+}
+
+.quote-name {
+    font-family: 'Playfair Display SC', serif;
+    margin-top: 0;
+    font-size: 1.3rem;
+    color: #bbb;
+}
+
+.swirl {
+    width: 60%;
+    border-bottom: 1px solid #eee;
+}
+
+.swirl-bottom {
+    -webkit-transform: scaleY(-1);
+        -ms-transform: scaleY(-1);
+            transform: scaleY(-1);
+}
+
+.comment-box {
+    margin: 30px 0 50px;
+    padding: 15px 25px 30px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+}
+
+.comment-user {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #888;
+    margin: 20px 0 0;
+}
+
+.comment-text {
+    font-size: 1.2rem;
+    margin: 0
+}
+
+
+/* ------------------------------------------------------- Add | Edit Drink -*/
+
+#add-edit h5 {
+    margin-bottom: 2rem;
+}
+
+#add-default-url {
+    color: #919191;
+    right: 0;
+    -webkit-transition: 0.3s ease-in;
+    -o-transition: 0.3s ease-in;
+    transition: 0.3s ease-in;
+}
+
+#add-default-url:hover {
+    color: black;
+}
+
+.required-label {
+    display: inline-block;
+    margin-bottom: 1.2rem;
+    border: 1px solid black;
+    padding: 1rem;
+}
+
+.add-remove-ingredients {
+    margin-top: -2.5rem;
+    margin-bottom: 3rem;
+    padding: 0 1.5rem;
+}
+
+
+/* ----------------------------------------------------------- Delete Modal -*/
+
+.hr-delete {
+    border-color: #e53935;
+    width: 60%;
+}
+
+@media screen and (min-width: 601px) {
+    .hr-delete {
+        width: 30%;
+    }
+}
+
+.modal {
+    max-width: 800px;
+    border-radius: 10px;
+}
+
+.modal-content a {
+    margin-top: 2rem;
+}
+
+
+/* ---------------------------------------------------------------- Account -*/
+
+#account {
+    padding-top: 2rem;
+}
+
+#account hr {
+    margin: 10px 0;
+}
+
+#account h1 {
+    overflow-wrap: break-word;
+}
+
+#account p {
+    line-height: 2;
+}
+
+.account-stats {
+    margin-bottom: 2rem;
+}
+
+/* ------------------------------------------------------ Log In & Register -*/
+
+.v-center-wrapper {
+    height: calc(100vh - 64px - 96px);
+
+}
+
+.v-center-content {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+}
+
+.log-reg-wrapper {
+    padding: 20px;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255); /*Fallback*/
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid #555;
+}
+
+/* --------------------------------------------------------- Footer Styling -*/
+
+footer .row {
+    margin-bottom: 0;
+}
+
+.footer {
+    min-height: 50px;
+    background-color: black;
+    color: white;
+}
+
+.footer-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+    padding: 8px;
+}
+
+.footer-logo {
+    height: 56px;
+    margin: 4px 10px;
+}
+
+footer i {
+    -webkit-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
+}
+
+.social-icon-footer {
+    margin: 10px;
+    font-size: 1.6rem;
+    color: white;
+}
+
+.cocktail-icon-footer {
+    font-size: 2.4rem;
+    color: white;
+}
+
+
+/* ---------------------------------------------------- Error Pages -*/
+
+.error-page {
+    background: url(../images/background/error_bg.jpg) no-repeat center center fixed;
+    background-size: cover;
+    background-color: black;
+    margin: 0;
+}
+
+.error-page h1 {
+    position: absolute;
+    top: 15%;
+    font-family: 'Muli', sans-serif;
+    font-size: 3rem;
+    line-height: 1.35em;
+}
+
+.error-page h1 span {
+    color: black;
+    background-color: rgb(255, 255, 255); /*Fallback*/
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 0 20px;
+    -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
+}
+
+@media screen and (min-width: 601px) {
+    .error-page h1 {
+        font-size: 5rem;
+    }
+}
+
+/* Added 25.11.20 */
+.help-message {
+    background-color:#212121;
+    color:white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.help-message h6 {
+    font-weight: 700;
+}
+
+.help-message a {
+    color:#FFFFFF;
+    font-weight: 700;
+}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block content %}
+
+<section class="page-container content-wrapper">
+    <div class="row center">
+        <h1>Add Drink</h1>
+    </div>
+
+    <div class="row">
+        <form method="POST" action="{{ url_for('add_drink') }}" class="col s12">
+            {% include 'helpers/drink_form.html' %}
+            
+            <!--Submit & Cancel Buttons-->
+            <div class="center">
+                <button class="btn btn--black" type="submit">Submit Drink</button>
+                <a class="btn btn--white cancel-form">Cancel</a>
+            </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

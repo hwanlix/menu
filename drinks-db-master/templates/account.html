@@ -1,0 +1,239 @@
+{% extends 'base.html' %} {% block content %}
+
+<section id="account" class="page-container content-wrapper">
+    <div class="row">
+        
+        <!--User & Stats-->
+        <section class="col s12 account-stats">
+            <h1>Hi {{user.userName}}</h1>
+            <p>Your drinks have had a total of <span class="info-label">{{views}}</span> views</p>
+            <p>Drinks submitted by you have been favorited a total of <span class="info-label">{{favorites}}</span> times</p>
+            <p>A total of <span class="info-label">{{comments}}</span> comments have been left across all of your drinks</p>
+
+            <p>There are currently <span class="info-label">{{total_drinks}}</span> drinks in the database, 
+                spread over a total of <span class="info-label">{{total_categories}}</span> categories, 
+                <span class="info-label">{{total_glass_types}}</span> different ypes of drinking glasses, 
+                and <span class="info-label">{{total_difficulties}}</span> levels of difficulty.</p>
+        </section>
+        
+        <!--User Drinks Stats-->
+        <section class="col s12">
+            <div class="row eq-height-columns">
+                
+                <!--Most Viewed-->
+                <div class="col s12 m4">
+                    <div class="card">
+                        {% if most_viewed %}
+                        <div class="card-image">
+                            <a href="{{ url_for('drink', drink_id = most_viewed._id) }}"><img class="responsive-img" src="{{most_viewed.imageUrl}}" alt="{{most_viewed.name}}"></a>
+                            <a href="{{ url_for('view_only', option = 'category', choice = most_viewed.category) }}" class="card-label card-label--pos-1 green">{{most_viewed.category.title()}}</a>
+                            <a href="{{ url_for('view_only', option = 'glassType', choice = most_viewed.glassType) }}" class="card-label card-label--pos-2 pink accent-2">{{most_viewed.glassType.title()}} Glass</a>
+                            <a href="{{ url_for('view_only', option = 'difficulty', choice = most_viewed.difficulty) }}" class="card-label card-label--pos-3 deep-purple accent-2">{{most_viewed.difficulty.title()}}</a>
+                        </div>
+                        <div class="card-content">
+                            <h6>Most Viewed</h6>
+                            <hr>
+                            <p>Your drink with the most views is {{most_viewed.name}}. It has been viewed {{most_viewed.views}} times.</p>
+                        </div>
+                        <div class="card-action center-align">
+                            <a href="{{ url_for('drink', drink_id = most_viewed._id) }}">{{most_viewed.name}}</a>
+                        </div>
+                        {% else %}
+                        <div class="card-image">
+                            <img width="375" src="{{ url_for('static', filename='images/no_image.jpg') }}" alt="No Drink" class="responsive-img">
+                        </div>
+                        <div class="card-content">
+                            <h6>Most Viewed</h6>
+                            <hr>
+                            <p>None of your drinks have been viewed yet.</p>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <!--Most Favorited-->
+                <div class="col s12 m4">
+                    <div class="card">
+                        {% if most_favorited %}
+                        <div class="card-image">
+                            <a href="{{ url_for('drink', drink_id = most_favorited._id) }}"><img class="responsive-img" alt="{{most_favorited.name}}" src="{{most_favorited.imageUrl}}"></a>
+                            <a href="{{ url_for('view_only', option = 'category', choice = most_favorited.category) }}" class="card-label card-label--pos-1 green">{{most_favorited.category.title()}}</a>
+                            <a href="{{ url_for('view_only', option = 'glassType', choice = most_favorited.glassType) }}" class="card-label card-label--pos-2 pink accent-2">{{most_favorited.glassType.title()}} Glass</a>
+                            <a href="{{ url_for('view_only', option = 'difficulty', choice = most_favorited.difficulty) }}" class="card-label card-label--pos-3 deep-purple accent-2">{{most_favorited.difficulty.title()}}</a>
+                        </div>
+                        <div class="card-content">
+                            <h6>Most Favorited</h6>
+                            <hr>
+                            <p>Your most favorited drink is {{most_favorited.name}}. It has been favorited by {{most_favorited.favorites}} users.</p>
+                        </div>
+                        <div class="card-action center-align">
+                            <a href="{{ url_for('drink', drink_id = most_favorited._id) }}">{{most_favorited.name}}</a>
+                        </div>
+                        {% else %}
+                        <div class="card-image">
+                            <img width="375" src="{{ url_for('static', filename='images/no_image.jpg') }}" alt="No Drink" class="responsive-img">
+                        </div>
+                        <div class="card-content">
+                            <h6>Most Favorites</h6>
+                            <hr>
+                            <p>Your drinks have not been added to anyones favorites yet.</p>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <!--Most Commented-->
+                <div class="col s12 m4">
+                    <div class="card">
+                        {% if most_commented %}
+                        <div class="card-image">
+                            <a href="{{ url_for('drink', drink_id = most_commented._id) }}"><img class="responsive-img" alt="{{most_commented.name}}" src="{{most_commented.imageUrl}}"></a>
+                            <a href="{{ url_for('view_only', option = 'category', choice = most_commented.category) }}" class="card-label card-label--pos-1 green">{{most_commented.category.title()}}</a>
+                            <a href="{{ url_for('view_only', option = 'glassType', choice = most_commented.glassType) }}" class="card-label card-label--pos-2 pink accent-2">{{most_commented.glassType.title()}} Glass</a>
+                            <a href="{{ url_for('view_only', option = 'difficulty', choice = most_commented.difficulty) }}" class="card-label card-label--pos-3 deep-purple accent-2">{{most_commented.difficulty.title()}}</a>
+                        </div>
+                        <div class="card-content">
+                            <h6>Most Commented</h6>
+                            <hr>
+                            <p>Your drink with the most comments is {{most_commented.name}} with {{most_commented.comments}} comments.</p>
+                        </div>
+                        <div class="card-action center-align">
+                            <a href="{{ url_for('drink', drink_id = most_commented._id) }}">{{most_commented.name}}</a>
+                        </div>
+                        {% else %}
+                        <div class="card-image">
+                            <img width="375" src="{{ url_for('static', filename='images/no_image.jpg') }}" alt="No Drink" class="responsive-img">
+                        </div>
+                        <div class="card-content">
+                            <h6>Most Commented</h6>
+                            <hr>
+                            <p>No one has left a comment on any of your drinks yet.</p>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!--Users Submitted Drinks-->
+    <section class="row">
+        <h4>Drinks Submitted By You</h4>
+
+        <!--Summary-->
+        {% if total_drinks_by_user > 0 %}
+        <h6>Showing most recent first</h6>
+        <div class="row center">
+            <h6>Showing {{first_dr_result_num}} - {{last_dr_result_num}} of {{total_drinks_by_user}} results</h6>
+        </div>
+        {% else %}
+        <h6>No Drinks Submitted Yet.</h6>
+        <a href="{{ url_for('add_drink') }}" class="btn btn--black">Add One Now</a>
+        {% endif %}
+
+        <div class="row">
+            {% for drink in users_drinks %}
+                <div class="col s6 l4 xl3">
+                    {% include 'helpers/drink_card.html' %}
+                </div>
+            {% endfor %}
+        </div>
+        
+        <!--Pagination-->
+        {% if total_drinks_by_user > 4 %}
+        <ul class="pagination center">
+            <!--Left Arrow-->
+            {% if drinks_page | int > 1 %}
+            <li><a href="{{ url_for('account',
+                        account_name = session.username,
+                        drinks_page=drinks_page-1,
+                        favorites_page=favorites_page) }}">
+            <i class="fas fa-angle-left"></i></a></li>
+            {% else %}
+            <li class="disabled"><i class="fas fa-angle-left"></i></li>
+            {% endif %}
+            <!--Page Numbers-->
+            {% for dr_page_number in dr_pages %}
+                {% if dr_page_number == drinks_page %}
+                <li class="active"><a>{{ dr_page_number }}</a></li>
+                {% else %}
+                <li><a href="{{ url_for('account',
+                            account_name = session.username,
+                            drinks_page=dr_page_number,
+                            favorites_page=favorites_page) }}">{{ dr_page_number }}</a></li>
+                {% endif %}
+            {% endfor %}
+            <!--Right Arrow-->
+            {% if drinks_page | int < dr_pages | count | int %}
+            <li><a href="{{ url_for('account',
+                        account_name = session.username,
+                        drinks_page=drinks_page+1,
+                        favorites_page=favorites_page) }}">
+            <i class="fas fa-angle-right"></i></a></li>
+            {% else %}
+            <li class="disabled"><i class="fas fa-angle-right"></i></li>
+            {% endif %}
+        </ul>
+        {% endif %}
+    </section>
+
+    <!--Users Favorite Drinks-->
+    <section class="row">
+        <h4>Drinks Favorited By You</h4>
+        
+        <!--Summary-->
+        {% if total_user_fave_drinks > 0 %}
+        <div class="row center">
+            <h6>Showing {{first_fv_result_num}} - {{last_fv_result_num}} of {{total_user_fave_drinks}} results</h6>
+        </div>
+        {% else %}
+        <h6>No Drinks Favorited Yet</h6>
+        {% endif %}
+        <div class="row">
+            {% for drink in favorited_drinks %}
+                <div class="col s6 l4 xl3">
+                    {% include 'helpers/drink_card.html' %}
+                </div>
+            {% endfor %}
+        </div>
+        
+        <!--Pagination-->
+        {% if total_user_fave_drinks > 4 %}
+        <ul class="pagination center">
+            <!--Left Arrow-->
+            {% if favorites_page | int > 1 %}
+            <li><a href="{{ url_for('account',
+                        account_name = session.username,
+                        drinks_page=drinks_page,
+                        favorites_page=favorites_page-1) }}">
+            <i class="fas fa-angle-left"></i></a></li>
+            {% else %}
+            <li class="disabled"><i class="fas fa-angle-left"></i></li>
+            {% endif %}
+            <!--Page Numbers-->
+            {% for fv_page_number in fv_pages %}
+                {% if fv_page_number == favorites_page %}
+                <li class="active"><a>{{ fv_page_number }}</a></li>
+                {% else %}
+                <li><a href="{{ url_for('account',
+                            account_name = session.username,
+                            drinks_page=drinks_page,
+                            favorites_page=fv_page_number) }}">{{ fv_page_number }}</a></li>
+                {% endif %}
+            {% endfor %}
+            <!--Right Arrow-->
+            {% if favorites_page | int < fv_pages | count | int %}
+            <li><a href="{{ url_for('account',
+                        account_name = session.username,
+                        drinks_page=drinks_page,
+                        favorites_page=favorites_page+1) }}">
+            <i class="fas fa-angle-right"></i></a></li>
+            {% else %}
+            <li class="disabled"><i class="fas fa-angle-right"></i></li>
+            {% endif %}
+        </ul>
+        {% endif %}
+    </section>
+</section>
+
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends 'base.html' %} {% block content %}
+
+<section class="page-container content-wrapper">
+    <div class="row center">
+        <h3>Showing Only: {{choice.title()}}</h3>
+        {% if 'category' in request.path %}
+        <p class="subheader-label">{{view.categoryDescription}}</p>
+        {% endif %}
+    </div>
+    
+    <!--Sort Options-->
+    <div class="row">
+        <form method="POST" action="{{ url_for('view_only', option = option, choice = choice) }}">
+            {% include 'helpers/sort_options.html' %}
+        </form>
+    </div>
+
+    <!--Summary-->
+    {% if drinks.count() == 0 %}
+    <div class="center">
+        <h6>No drinks to show.</h6>
+    </div>
+    
+    {% else %}
+    <div>
+        <h6>Showing {{first_result_num}} - {{last_result_num}} of {{drinks.count()}} results</h6>
+    </div>
+
+    <!--Drinks-->
+    <section class="row">
+        {% for drink in drinks %}
+        <div class="col s6 l4 xl3">
+        {% include 'helpers/drink_card.html' %}
+        </div>
+        {% endfor %}
+    </section>
+    
+    
+    <!--Pagination-->
+    <ul class="pagination center">
+        <!--Left Arrow-->
+        {% if current_page | int > 1 %}
+        <li><a href="{{ url_for('view_only', option = option, choice = choice, current_page=current_page-1) }}"><i class="fas fa-angle-left"></i></a></li>
+        {% else %}
+        <li class="disabled"><i class="fas fa-angle-left"></i></li>
+        {% endif %}
+
+        <!--Page Numbers-->
+            {% for page_number in pages %}
+            {% if page_number == current_page %}
+            <li class="active"><a>{{ page_number }}</a></li>
+            {% else %}
+            <li><a href="{{ url_for('view_only', option = option, choice = choice, current_page=page_number) }}">{{ page_number }}</a></li>
+            {% endif %}
+        {% endfor %}
+
+        <!--Right Arrow-->
+        {% if current_page | int < pages | count | int %}
+        <li><a href="{{ url_for('view_only', option = option, choice = choice, current_page=current_page+1) }}"><i class="fas fa-angle-right"></i></a></li>
+        {% else %}
+        <li class="disabled"><i class="fas fa-angle-right"></i></li>
+        {% endif %}
+    </ul>
+    
+    {% endif %}
+
+</section>
+
+{% endblock %}
